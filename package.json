@@ -1,15 +1,21 @@
 {
-  "name": "graphqltest",
-  "description": "GraphQLTest",
-  "dependencies": {
-    "graphql": "^0.10.3"
-  },
-  "version": "1.0.0",
-  "main": "index.js",
-  "devDependencies": {},
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "",
-  "license": "ISC"
+	"name": "graphqltest",
+	"repository": {
+		"type": "git",
+		"url": "git@github.com:nojoobang/graphqltest.git"
+	},
+	"description": "GraphQLTest",
+	"dependencies": {
+		"express": "latest",
+		"express-graphql": "latest",
+		"graphql": "^0.10.3"
+	},
+	"version": "1.0.0",
+	"main": "index.js",
+	"devDependencies": {},
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"author": "",
+	"license": "ISC"
 }
