@@ -5,6 +5,7 @@ if (!process.env.NODE_ENV) {
   process.env.NODE_ENV = JSON.parse(config.dev.env.NODE_ENV)
 }
 
+var fs = require('fs')
 var opn = require('opn')
 var path = require('path')
 var express = require('express')
@@ -60,6 +61,16 @@ app.use(devMiddleware)
 // enable hot-reload and state-preserving
 // compilation error display
 app.use(hotMiddleware)
+
+app.get('/hello', function(req, res) {
+  var vue = fs.readFileSync(path.join(__dirname, '../src/components/Hello.vue'), 'utf8')
+  res.send(vue);
+})
+
+app.get('/welcome', function(req, res) {
+  var vue = fs.readFileSync(path.join(__dirname, '../src/components/Welcome.vue'), 'utf8')
+  res.send(vue);
+})
 
 // serve pure static assets
 var staticPath = path.posix.join(config.dev.assetsPublicPath, config.dev.assetsSubDirectory)

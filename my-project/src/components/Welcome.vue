@@ -7,7 +7,7 @@
 
 <script>
 export default {
-	name: '/welcome',
+	name: 'welcome',
 	data () {
 		return {
 			msg: '웰컴이라는'
