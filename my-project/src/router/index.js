@@ -1,9 +1,13 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Hello from '@/components/Hello'
-import Welcome from '@/components/Welcome'
-import eee from '../../loader/loader.js'
-console.log('eee: ', eee)
+import { getHtml } from '../../loader/loader.js'
+
+let Hello
+
+getHtml(function (r) {
+	Hello = r
+})
+
 Vue.use(Router)
 
 export default new Router({
@@ -12,11 +16,6 @@ export default new Router({
 			path: '/',
 			name: 'Hello',
 			component: Hello
-		},
-		{
-			path: '/welcome',
-			name: 'Welcome',
-			component: Welcome
 		}
 	]
 })

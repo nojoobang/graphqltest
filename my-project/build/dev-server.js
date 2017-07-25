@@ -63,11 +63,13 @@ app.use(devMiddleware)
 app.use(hotMiddleware)
 
 app.get('/hello', function(req, res) {
+  console.log('Hell ooooooooooooooooooooooooooooo')
   var vue = fs.readFileSync(path.join(__dirname, '../src/components/Hello.vue'), 'utf8')
   res.send(vue);
 })
 
 app.get('/welcome', function(req, res) {
+  console.log('Weeeeeeeeeeeeeeeeeeeeeeeeeelcome')
   var vue = fs.readFileSync(path.join(__dirname, '../src/components/Welcome.vue'), 'utf8')
   res.send(vue);
 })

@@ -2,14 +2,46 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
 import App from './App'
-import router from './router'
+import Router from 'vue-router'
+import loader from '../loader/loader.js'
 
-Vue.config.productionTip = false
+Vue.use(Router)
 
-/* eslint-disable no-new */
-new Vue({
-	el: '#app',
-	router,
-	template: '<App/>',
-	components: { App }
+async function setRouter () {
+	let a = await loader.a.then(v => {
+		return v.data
+	})
+
+	let b = await loader.b.then(v => {
+		return v.data
+	})
+
+	return [a, b]
+}
+
+setRouter().then(v => {
+	let router = new Router({
+		routes: [
+			{
+				path: '/',
+				name: 'Hello',
+				component: v[0].querySelector('head')
+			},
+			{
+				path: '/welcome',
+				name: 'Welcome',
+				component: v[1].querySelector('head')
+			}
+		]
+	})
+
+	Vue.config.productionTip = false
+
+	/* eslint-disable no-new */
+	new Vue({
+		el: '#app',
+		router,
+		template: '<App/>',
+		components: { App }
+	})
 })
