@@ -5,6 +5,8 @@ import App from './App'
 import Router from 'vue-router'
 import loader from '../loader/loader.js'
 
+let router
+
 Vue.use(Router)
 
 async function setRouter () {
@@ -20,7 +22,7 @@ async function setRouter () {
 }
 
 setRouter().then(v => {
-	let router = new Router({
+	router = new Router({
 		routes: [
 			{
 				path: '/',
@@ -35,8 +37,11 @@ setRouter().then(v => {
 		]
 	})
 
-	Vue.config.productionTip = false
+	startApp()
+})
 
+let startApp = () => {
+	Vue.config.productionTip = false
 	/* eslint-disable no-new */
 	new Vue({
 		el: '#app',
@@ -44,4 +49,4 @@ setRouter().then(v => {
 		template: '<App/>',
 		components: { App }
 	})
-})
+}
