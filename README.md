@@ -1,2 +1,2 @@
-# 그냥 테스트여~~
-그냥 테스트여~~
+# webpack이랑 vue-router로 이것저것 해보는 중이여~~
+webpack이랑 vue-router로 이것저것 해보는 중이여~~
