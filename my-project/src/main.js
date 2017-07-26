@@ -34,7 +34,7 @@ setRouter().then(v => {
 			},
 			{
 				path: '/welcome',
-				name: 'Welcome',
+				name: 'Welcome', ate: v[1].querySelector('head').firstChild.innerHTML }
 			}
 		]
 	})
@@ -52,3 +52,19 @@ let startApp = () => {
 		components: { App }
 	})
 }
+
+// let convertingHtmlToVue = (v) => {
+// 	let name
+// 	let rv = []
+
+// 	v.forEach(vv => {
+// 		name = 'Random' + Math.floor(Math.random() * 1000)
+// 		console.log(vv.querySelector('head').innerHTML)
+// 		Vue.component(name, {
+// 			template: vv.querySelector('head').innerHTML
+// 		})
+// 		rv.push(name)
+// 	})
+
+// 	return rv
+// }
