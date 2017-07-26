@@ -4,6 +4,9 @@ import Vue from 'vue'
 import App from './App'
 import Router from 'vue-router'
 import loader from '../loader/loader.js'
+import Hello from '@/components/Hello'
+
+console.log('Original vue inst: ', Hello)
 
 let router
 
@@ -27,12 +30,11 @@ setRouter().then(v => {
 			{
 				path: '/',
 				name: 'Hello',
-				component: v[0].querySelector('head')
+				component: { template: v[0].querySelector('head').firstChild.innerHTML }
 			},
 			{
 				path: '/welcome',
 				name: 'Welcome',
-				component: v[1].querySelector('head')
 			}
 		]
 	})
