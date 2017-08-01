@@ -21,10 +21,7 @@ const model = new GraphQLObjectType({
 			type: GraphQLID
 		},
 		contents: { //contents의 ids
-			type: new GraphQLList(contents),
-			resolve: () => {
-
-			}
+			type: GraphQLString
 		}
 	})
 });
@@ -42,10 +39,10 @@ const query = {
 			type: GraphQLString
 		},
 		children: {
-			type:
+			type: GraphQLID
 		},
 		contents: {
-			type: 
+			type: GraphQLString
 		}
 	},
 	resolve: (_, args) => {
@@ -68,10 +65,7 @@ const mutation = {
 			type: GraphQLID
 		},
 		contents: { //contents의 ids
-			type: new GraphQLList(contents),
-			resolve: () => {
-
-			}
+			type: GraphQLString
 		}
 	},
 	resolve: (_, args) => {
