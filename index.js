@@ -8,7 +8,6 @@ let models = require('./models/index.js');
 
 const app = express();
 
-console.log(models);
 const schema = new GraphQLSchema(models);
 
 app.use('/graphql', graphqlHTTP({

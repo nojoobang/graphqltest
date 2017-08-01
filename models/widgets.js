@@ -8,16 +8,19 @@ let {
 
 const widgets = {};
 
+const widgetEnum = new GraphQLEnumType({
+	name: 'widgetEnum',
+	values: {
+		header: {value: 0},
+		footer: {value: 1}
+	}
+});
+
 const model = new GraphQLObjectType({
 	name: 'widgets',
 	fields: () => ({
-		type: {
-			type: new GraphQLEnumType({
-				values: {
-					header: {value: 0},
-					footer: {value: 1}
-				}
-			})
+		widgetType: {
+			type: widgetEnum
 		},
 		layout: { // n coloum, n row // JSON의 형태
 			type: GraphQLString
@@ -34,17 +37,8 @@ const query = {
 		id: {
 			type: GraphQLID
 		},
-		path: {
-			type: GraphQLString
-		},
-		name: {
-			type: GraphQLString
-		},
-		children: {
-			type:
-		},
-		contents: {
-			type: 
+		widgetType: {
+			type: widgetEnum
 		}
 	},
 	resolve: (_, args) => {
@@ -57,13 +51,8 @@ const query = {
 const mutation = {
 	type: model,
 	args: {
-		type: {
-			type: new GraphQLEnumType({
-				values: {
-					header: {value: 0},
-					footer: {value: 1}
-				}
-			})
+		widgetType: {
+			type: widgetEnum
 		},
 		layout: { // n coloum, n row // JSON의 형태
 			type: GraphQLString
