@@ -4,7 +4,7 @@ let graphql = require('graphql');
 let {
   GraphQLSchema
 } = graphql;
-let models = require('./models/index.js');
+let models = require('./models/new/index.js');
 
 const app = express();
 
